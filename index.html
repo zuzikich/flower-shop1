@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Цветочный Аромат</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">🌺 Цветочный Аромат</div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <span class="material-icons">shopping_bag</span>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h1>ЦВЕТЫ</h1>
+            <p>Описание</p>
+            <a href="#catalog" class="btn-banner">В каталог</a>
+        </div>
+    </section>
+
+    <!-- БЛОК КАТЕГОРИЙ -->
+    <div class="categories-wrapper">
+        <h2>КАТАЛОГ</h2>
+        <div id="categories-container"></div>
+    </div>
+
+    <main id="catalog"></main>
+
+    <!-- CONTACT WIDGET -->
+    <div id="contact-widget" class="contact-widget-btn" onclick="toggleContactModal()">
+        <span class="material-icons">chat_bubble</span>
+    </div>
+
+    <div id="contact-modal-overlay" class="modal hidden">
+        <div class="modal-content contact-modal-content">
+            <h2 style="margin-bottom:20px">Контакты</h2>
+            <div class="contact-grid">
+                <a href="https://t.me/lena_003_s" target="_blank" class="contact-item">
+                    <div class="icon-circle tg"><i class="fa-brands fa-telegram"></i></div>
+                    <span>Telegram</span>
+                </a>
+                <a href="tel:+79063311003" class="contact-item">
+                    <div class="icon-circle ph"><i class="fa-solid fa-phone"></i></div>
+                    <span>Телефон</span>
+                </a>
+                <a href="https://wa.me/79063311003" target="_blank" class="contact-item">
+                    <div class="icon-circle wa"><i class="fa-brands fa-whatsapp"></i></div>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+            <div class="close-contact-btn" onclick="toggleContactModal()">
+                <span class="material-icons">close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-content product-content">
+            <span class="close-modal" onclick="closeProductModal()">&times;</span>
+            <div class="prod-layout">
+                <img id="modal-img" src="" alt="">
+                <div class="prod-info">
+                    <h2 id="modal-title"></h2>
+                    <div class="modal-price"><span id="modal-price"></span> ₽</div>
+                    <p id="modal-desc"></p>
+                    <div id="modal-actions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content cart-content">
+            <div class="modal-header">
+                <h2>Ваш заказ:</h2>
+                <span class="close-modal" onclick="toggleCart()">&times;</span>
+            </div>
+            <div id="cart-items"></div>
+            <div class="total-row">Итого: <span id="total-price">0</span> р.</div>
+            <form id="order-form">
+                <input id="name" placeholder="Ваше имя" required>
+                <input id="phone" placeholder="Телефон" required>
+                <input id="address" placeholder="Адрес доставки" required>
+                <button class="btn-checkout">Оформить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
